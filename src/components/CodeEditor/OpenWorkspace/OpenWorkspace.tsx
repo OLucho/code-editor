@@ -1,5 +1,7 @@
 import { Button, makeStyles } from "@material-ui/core";
 import React, { useRef } from "react";
+import { useAppDispatch } from "../../../redux/hooks";
+import { readFiles } from "../../../redux/thunks/readFiles/readFiles";
 import { commonColors } from "../../../theme/colors";
 
 export const OpenWorkspace: React.FC = () => {
@@ -13,11 +15,19 @@ export const OpenWorkspace: React.FC = () => {
   }));
   const classes = useStyles();
 
+  const dispatch = useAppDispatch();
   const directoryInputRef = useRef<HTMLInputElement>(null);
 
   //@ts-ignore
   const handleClick = () => directoryInputRef.current.click();
-  const onFilesUploaded = () => console.log("click");
+  const onFilesUploaded = async () => {
+    try {
+      const files = directoryInputRef.current?.files as FileList;
+      await dispatch(readFiles(files));
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   return (
     <div>
