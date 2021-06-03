@@ -1,6 +1,6 @@
 import persistReducer from "redux-persist/es/persistReducer";
 import storage from "redux-persist/lib/storage";
-import reducer from "../rootReducer";
+import reducer from "../../rootReducer";
 
 const persistConfig = {
   key: "root",

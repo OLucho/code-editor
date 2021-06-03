@@ -7,7 +7,7 @@ import {
   REHYDRATE,
 } from "redux-persist/es/constants";
 import persistStore from "redux-persist/es/persistStore";
-import { persistedReducer } from "./darkMode/persist.config";
+import { persistedReducer } from "./reducers/darkMode/persist.config";
 
 const ignoredActions = [FLUSH, REHYDRATE, PERSIST, PURGE, REGISTER];
 

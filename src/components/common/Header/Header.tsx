@@ -8,7 +8,7 @@ import {
 } from "@material-ui/core";
 import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
-import { toggleDarkMode } from "../../../redux/darkMode/reducer";
+import { toggleDarkMode } from "../../../redux/reducers/darkMode/reducer";
 import DarkModeIcon from "@material-ui/icons/Brightness2";
 import { UnauthenticatedButtons } from "./UnauthenticatedButtons";
 import { AuthenticatedButtons } from "./AuthenticatedButtons";
