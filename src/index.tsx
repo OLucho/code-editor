@@ -6,13 +6,16 @@ import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 import { AuthProvider } from "./auth/AuthProvider";
 import { ReduxProvider } from "./redux/Provider";
+import { CustomThemeProvider } from "./theme/ThemeProvider";
 
 ReactDOM.render(
   <React.StrictMode>
     <ReduxProvider>
       <Router>
         <AuthProvider>
-          <App />
+          <CustomThemeProvider>
+            <App />
+          </CustomThemeProvider>
         </AuthProvider>
       </Router>
     </ReduxProvider>
