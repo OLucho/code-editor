@@ -8,7 +8,6 @@ export const AuthProvider: React.FC = (props: PropsWithChildren<{}>) => {
   const onRedirectCallback = (state: any) => {
     history.push(state?.returnTo || window.location.pathname);
   };
-
   return (
     <Auth0Provider
       domain={appConfig.authDomain}

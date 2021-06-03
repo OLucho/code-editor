@@ -1,6 +1,6 @@
 const appConfig = {
-  authDomain: process.env.AUTH0_DOMAIN || "",
-  authClientId: process.env.AUTH0_CLIENT_ID || "",
+  authClientId: process.env.REACT_APP_AUTH0_CLIENT_ID || "",
+  authDomain: process.env.REACT_APP_AUTH0_DOMAIN || "",
 };
 
 export default appConfig;
