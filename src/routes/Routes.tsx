@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from "react-router";
 import { ProtectedRoute } from "../auth/ProtectedRoute";
 import Loading from "../components/common/Loading/Loading";
 import { routes } from "./routesList";
+import { Header } from "../components/common/Header/Header";
 
 const Routes: React.FC = () => {
   const useStyles = makeStyles(() => ({
@@ -27,7 +28,7 @@ const Routes: React.FC = () => {
 
   return (
     <div className={classes.main}>
-      <div>header</div>
+      <Header />
       <div className={classes.page}>
         <Switch>
           <ProtectedRoute
