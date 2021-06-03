@@ -1,7 +1,7 @@
 import { makeStyles } from "@material-ui/core";
 import { SignOut } from "../../../auth/SignOut";
 
-export const AuthenticatedButtons: React.FC = ({}) => {
+export const AuthenticatedButtons: React.FC = () => {
   const useStyles = makeStyles(() => ({
     root: {
       display: "flex",

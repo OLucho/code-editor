@@ -3,7 +3,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { makeStyles, Button } from "@material-ui/core";
 import { commonColors } from "../theme/colors";
 
-export const SignIn: React.FC = ({}) => {
+export const SignIn: React.FC = () => {
   const useStyles = makeStyles(() => ({
     button: {
       color: commonColors.white,
