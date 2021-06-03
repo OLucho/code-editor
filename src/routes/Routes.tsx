@@ -32,7 +32,6 @@ const Routes: React.FC = () => {
       <div className={classes.page}>
         <Switch>
           <ProtectedRoute
-            //@ts-ignore
             exact
             path={routes.codeEditor}
             component={() => <div>hola</div>}

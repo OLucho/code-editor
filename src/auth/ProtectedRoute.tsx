@@ -1,9 +1,9 @@
 import { withAuthenticationRequired } from "@auth0/auth0-react";
-import React, { ComponentType, PropsWithChildren } from "react";
-import { Route } from "react-router-dom";
+import { ComponentType, PropsWithChildren } from "react";
+import { Route } from "react-router";
 import Loading from "../components/common/Loading/Loading";
 
-export const ProtectedRoute: React.FC = (
+export const ProtectedRoute = (
   props: PropsWithChildren<{ [key: string]: any }>
 ) => {
   const { children, ...args } = props;
@@ -13,6 +13,6 @@ export const ProtectedRoute: React.FC = (
         onRedirecting: () => <Loading />,
       })}
       {...args}
-    ></Route>
+    />
   );
 };
