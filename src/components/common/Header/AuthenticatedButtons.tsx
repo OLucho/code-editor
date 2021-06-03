@@ -1,5 +1,6 @@
 import { makeStyles } from "@material-ui/core";
 import { SignOut } from "../../../auth/SignOut";
+import { OpenWorkspace } from "../../CodeEditor/OpenWorkspace/OpenWorkspace";
 
 export const AuthenticatedButtons: React.FC = () => {
   const useStyles = makeStyles(() => ({
@@ -10,7 +11,7 @@ export const AuthenticatedButtons: React.FC = () => {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <div>Open WorkSpace</div>
+      <OpenWorkspace />
       <SignOut />
     </div>
   );
