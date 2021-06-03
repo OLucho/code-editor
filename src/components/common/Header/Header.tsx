@@ -10,6 +10,8 @@ import { useAuth0 } from "@auth0/auth0-react";
 import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { toggleDarkMode } from "../../../redux/darkMode/reducer";
 import DarkModeIcon from "@material-ui/icons/Brightness2";
+import { UnauthenticatedButtons } from "./UnauthenticatedButtons";
+import { AuthenticatedButtons } from "./AuthenticatedButtons";
 
 export const Header: React.FC = () => {
   const { isAuthenticated } = useAuth0();
@@ -32,7 +34,11 @@ export const Header: React.FC = () => {
         </Typography>
         <DarkModeIcon />
         <Switch onChange={handleDarkMode} color="default" checked={darkMode} />
-        {isAuthenticated ? <div>Some buttons</div> : <div>otherButtons</div>}
+        {isAuthenticated ? (
+          <AuthenticatedButtons />
+        ) : (
+          <UnauthenticatedButtons />
+        )}
       </Toolbar>
     </AppBar>
   );
