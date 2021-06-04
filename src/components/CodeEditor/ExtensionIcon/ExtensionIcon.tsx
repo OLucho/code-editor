@@ -12,10 +12,10 @@ import { ReactComponent as DefaultIcon } from "../../../assets/images/blank-file
 import { makeStyles } from "@material-ui/core";
 
 interface ExtensionIconProps {
-  extension?: string;
+  extension?: string | undefined;
 }
 
-const ExtensionIcon = (props: ExtensionIconProps) => {
+export const ExtensionIcon = (props: ExtensionIconProps) => {
   const classes = useStyles();
   switch (props.extension) {
     case "jsx":
@@ -50,5 +50,3 @@ const useStyles = makeStyles(() => ({
     width: "15px",
   },
 }));
-
-export default ExtensionIcon;
