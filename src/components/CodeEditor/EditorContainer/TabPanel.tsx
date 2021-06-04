@@ -1,6 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/styles";
 import { UserFile } from "../../../types/userFile";
+import { MonacoEditor } from "./MonacoEditor";
 
 interface TabPanelProps {
   activeFile: UserFile;
@@ -19,7 +20,7 @@ export const CustomTabPanel: React.FC<TabPanelProps> = (props) => {
       role="tabpanel"
       hidden={editorActiveFile !== activeFileId}
     >
-      MonacoCodeEditor
+      <MonacoEditor activeFile={props.activeFile} />
     </div>
   );
 };
