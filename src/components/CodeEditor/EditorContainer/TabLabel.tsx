@@ -3,6 +3,8 @@ import React, { MouseEvent } from "react";
 import { UserFile } from "../../../types/userFile";
 import { ExtensionIcon } from "../ExtensionIcon/ExtensionIcon";
 import CloseIcon from "@material-ui/icons/Close";
+import { useAppDispatch } from "../../../redux/hooks";
+import { closeFile } from "../../../redux/thunks/closeFile/closeFile";
 
 interface TabLabelProps {
   activeFile: UserFile;
@@ -10,12 +12,14 @@ interface TabLabelProps {
 
 export const TabLabel: React.FC<TabLabelProps> = (props) => {
   const classes = useStyles();
+  const dispatch = useAppDispatch();
   const {
     activeFile: { id, name: fileName, extension },
   } = props;
 
   const handleClose = (event: MouseEvent) => {
     event.stopPropagation();
+    dispatch(closeFile(id));
   };
 
   return (
