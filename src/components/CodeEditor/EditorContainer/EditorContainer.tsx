@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import { setEditorActiveFile } from "../../../redux/reducers/files/reducer";
 import selectActiveFiles from "../../../redux/selectors/selectActiveFiles/selectActiveFiles";
 import { CustomTabPanel } from "./TabPanel";
+import { TabLabel } from "./TabLabel";
 
 export const EditorContainer = () => {
   const classes = useStyles();
@@ -39,7 +40,12 @@ export const EditorContainer = () => {
           onChange={handleChange}
         >
           {activeFiles.map((activeFile) => {
-            return <Tab key={activeFile.id} label="foo" />;
+            return (
+              <Tab
+                key={activeFile.id}
+                label={<TabLabel activeFile={activeFile} />}
+              />
+            );
           })}
         </Tabs>
       </AppBar>
