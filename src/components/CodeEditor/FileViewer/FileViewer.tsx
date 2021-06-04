@@ -1,6 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core";
-import { useAppSelector } from "../../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
 import selectFileViewerData from "../../../redux/selectors/selectFileViewerData/selectFileViewerData";
 import { FileViewerStructure } from "../../../types/fileViewerStructure";
 import { TreeItem } from "@material-ui/lab";
@@ -24,9 +24,12 @@ export const FileViewer: React.FC = () => {
     },
   }));
   const classes = useStyles();
+  const dispatch = useAppDispatch();
 
   const fileViewerData = useAppSelector(selectFileViewerData);
-  const onSelectNode = (node: FileViewerStructure) => {};
+  const onSelectNode = (node: FileViewerStructure) => {
+    dispatch(openFile(node));
+  };
 
   const renderTree = (node: FileViewerStructure) => {
     <TreeItem
