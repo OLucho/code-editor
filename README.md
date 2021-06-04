@@ -1,7 +1,6 @@
 # Code Editor
 
 <p align="center">Code Editor - Made with React + Typescript</p>
-<a href="https://insta-v03.herokuapp.com/" align="center">Deploy in Heroku: </a>
 
 
 ### Tech Stack
