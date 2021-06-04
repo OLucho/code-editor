@@ -4,5 +4,5 @@ import "@testing-library/jest-dom";
 
 it("should render the welcome message", () => {
   const { queryByText } = render(<Home />);
-  expect(queryByText(/Welcome to Code Editor App/i)).toBeInTheDocument();
+  expect(queryByText(/Welcome to Code Editor/i)).toBeInTheDocument();
 });
