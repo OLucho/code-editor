@@ -1,7 +1,8 @@
 import { makeStyles, Tabs } from "@material-ui/core";
 import { AppBar, Tab } from "@material-ui/core";
 import { ChangeEvent } from "react";
-import { useAppSelector } from "../../../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../../../redux/hooks";
+import { setEditorActiveFile } from "../../../redux/reducers/files/reducer";
 import selectActiveFiles from "../../../redux/selectors/selectActiveFiles/selectActiveFiles";
 import { CustomTabPanel } from "./TabPanel";
 
@@ -11,16 +12,19 @@ export const EditorContainer = () => {
   const editorActiveFile = useAppSelector(
     (state) => state.files.editorActiveFile
   );
-  const activeFilesId = useAppSelector((state) => state.files.activeFiles);
+  const activeFilesIds = useAppSelector((state) => state.files.activeFiles);
+  const dispatch = useAppDispatch();
+
+  const handleChange = (event: ChangeEvent<{}>, tabPosition: number) => {
+    const activeFileId = activeFilesIds[tabPosition];
+    if (activeFileId !== editorActiveFile) {
+      dispatch(setEditorActiveFile(activeFileId));
+    }
+  };
 
   if (activeFiles.length < 0) {
     return <div className={classes.emptyMessage}>Select a file</div>;
   }
-
-  const handleChange = (e: ChangeEvent<{}>, tabPosition: number) => {
-    console.log("");
-  };
-  console.log("");
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default">
@@ -29,19 +33,21 @@ export const EditorContainer = () => {
           indicatorColor="primary"
           variant="scrollable"
           scrollButtons="auto"
-          value={editorActiveFile ? activeFilesId.indexOf(editorActiveFile) : 0}
+          value={
+            editorActiveFile ? activeFilesIds.indexOf(editorActiveFile) : 0
+          }
           onChange={handleChange}
         >
-          {activeFiles.map((file) => {
-            return <Tab key={file.id} label="foo" />;
+          {activeFiles.map((activeFile) => {
+            return <Tab key={activeFile.id} label="foo" />;
           })}
         </Tabs>
       </AppBar>
-      {activeFiles.map((file) => {
+      {activeFiles.map((activeFile) => {
         return (
           <CustomTabPanel
-            key={file.id}
-            activeFile={file}
+            key={activeFile.id}
+            activeFile={activeFile}
             editorActiveFile={editorActiveFile}
           />
         );
@@ -55,6 +61,7 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     height: "100%",
     overflow: "hidden",
+    paddingTop: "60px",
   },
   emptyMessage: {
     display: "flex",

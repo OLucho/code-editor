@@ -16,8 +16,6 @@ export const FileViewer = () => {
   const onSelectNode = (node: FileViewerStructure) => {
     dispatch(openFile(node));
   };
-  console.log(fileViewerData);
-
   const renderTree = (node: FileViewerStructure) => {
     const { id: nodeId, name: nodeName, extension } = node;
     return (
@@ -26,7 +24,7 @@ export const FileViewer = () => {
         key={nodeId}
         nodeId={nodeId}
         label={nodeName}
-        onDoubleClick={() => onSelectNode(node)}
+        onClick={() => onSelectNode(node)}
         endIcon={<ExtensionIcon extension={extension} />}
       >
         {Array.isArray(node.children)
