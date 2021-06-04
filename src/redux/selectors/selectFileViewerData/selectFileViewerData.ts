@@ -46,7 +46,8 @@ const selectFileViewerData = (userFiles: UserFile[]): FileViewerStructure => {
         extension,
       });
     } else {
-      (children as FileViewerStructure).children!.push(fileData);
+      //@ts-ignore
+      children.children?.push(fileData);
     }
   }
 

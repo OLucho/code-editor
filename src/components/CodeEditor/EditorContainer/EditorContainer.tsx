@@ -20,7 +20,7 @@ export const EditorContainer = () => {
   const handleChange = (e: ChangeEvent<{}>, tabPosition: number) => {
     console.log("");
   };
-
+  console.log("");
   return (
     <div className={classes.root}>
       <AppBar position="static" color="default">
@@ -32,33 +32,35 @@ export const EditorContainer = () => {
           value={editorActiveFile ? activeFilesId.indexOf(editorActiveFile) : 0}
           onChange={handleChange}
         >
-          {activeFiles.map((file) => (
-            <Tab key={file.id} label="foo" />
-          ))}
+          {activeFiles.map((file) => {
+            return <Tab key={file.id} label="foo" />;
+          })}
         </Tabs>
       </AppBar>
-      {activeFiles.map((file) => (
-        <CustomTabPanel
-          key={file.id}
-          activeFile={file}
-          editorActiveFile={editorActiveFile}
-        />
-      ))}
+      {activeFiles.map((file) => {
+        return (
+          <CustomTabPanel
+            key={file.id}
+            activeFile={file}
+            editorActiveFile={editorActiveFile}
+          />
+        );
+      })}
     </div>
   );
 };
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    height: "100%",
     flex: 1,
+    height: "100%",
     overflow: "hidden",
   },
   emptyMessage: {
     display: "flex",
     height: "100%",
-    alignItems: "center",
     justifyContent: "center",
+    alignItems: "center",
     color: theme.font,
   },
 }));

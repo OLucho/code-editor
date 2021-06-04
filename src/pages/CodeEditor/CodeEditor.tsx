@@ -8,6 +8,7 @@ export const CodeEditor: React.FC = () => {
     root: {
       display: "flex",
       height: "100%",
+      width: "100%",
       justifyContent: "center",
       alignItems: "center",
       backgroundColor: theme.background,
@@ -16,6 +17,7 @@ export const CodeEditor: React.FC = () => {
       display: "flex",
       flex: 1,
       height: "100%",
+      alignItems: "center",
       justifyContent: "center",
       borderRight: "1px dashed black",
       maxWidth: "300px",

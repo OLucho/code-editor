@@ -16,6 +16,7 @@ export const FileViewer = () => {
   const onSelectNode = (node: FileViewerStructure) => {
     dispatch(openFile(node));
   };
+  console.log(fileViewerData);
 
   const renderTree = (node: FileViewerStructure) => {
     const { id: nodeId, name: nodeName, extension } = node;
@@ -53,7 +54,6 @@ export const FileViewer = () => {
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "0px 10px 10px",
-    height: "100%",
     width: "100%",
   },
   treeItem: {

@@ -13,6 +13,7 @@ export const CustomTabPanel: React.FC<TabPanelProps> = (props) => {
     activeFile: { id: activeFileId },
     editorActiveFile,
   } = props;
+  console.log("hola?");
   return (
     <div
       className={classes.root}
