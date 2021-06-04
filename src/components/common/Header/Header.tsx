@@ -27,10 +27,10 @@ export const Header: React.FC = () => {
   const classes = useStyles();
 
   return (
-    <AppBar>
+    <AppBar position="relative">
       <Toolbar>
         <Typography variant="h6" className={classes.title}>
-          Code Editor
+          Code Editor App
         </Typography>
         <DarkModeIcon />
         <Switch onChange={handleDarkMode} color="default" checked={darkMode} />

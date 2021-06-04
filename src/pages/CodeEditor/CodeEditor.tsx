@@ -26,7 +26,6 @@ export const CodeEditor: React.FC = () => {
     codeEditorContainer: {
       flex: 3,
       height: "100%",
-      marginTop: "120px",
     },
   }));
   const classes = useStyles();
