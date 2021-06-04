@@ -2,6 +2,7 @@ import { createSelector } from "@reduxjs/toolkit";
 import { FileViewerStructure } from "../../../types/fileViewerStructure";
 import { UserFile } from "../../../types/userFile";
 import { RootState } from "../../store";
+import { v4 as uuid } from "uuid";
 
 const selectFileViewerData = (userFiles: UserFile[]): FileViewerStructure => {
   const userFilesLength = userFiles.length;
@@ -30,7 +31,7 @@ const selectFileViewerData = (userFiles: UserFile[]): FileViewerStructure => {
         children = subFolder.children;
       } else {
         children.push({
-          id: j.toString(),
+          id: uuid(),
           name: path,
           children: [],
         });
