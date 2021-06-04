@@ -7,6 +7,7 @@ import Loading from "../components/common/Loading/Loading";
 import { routes } from "./routesList";
 import { Header } from "../components/common/Header/Header";
 import { Home } from "../pages/Home/Home";
+import { CodeEditor } from "../pages/CodeEditor/CodeEditor";
 
 const Routes: React.FC = () => {
   const useStyles = makeStyles(() => ({
@@ -22,7 +23,6 @@ const Routes: React.FC = () => {
 
   const classes = useStyles();
   const { isAuthenticated, isLoading } = useAuth0();
-  const codeEditor = () => <div>code editor component</div>;
 
   if (isLoading) {
     return <Loading />;
@@ -34,7 +34,7 @@ const Routes: React.FC = () => {
       <div className={classes.page}>
         <Switch>
           <ProtectedRoute exact path={routes.codeEditor}>
-            {codeEditor}
+            {CodeEditor}
           </ProtectedRoute>
           <Route exact path={routes.home}>
             {isAuthenticated ? <Redirect to={routes.codeEditor} /> : <Home />}
