@@ -1,6 +1,5 @@
 import { makeStyles } from "@material-ui/core";
 import React from "react";
-import { Link } from "react-router-dom";
 import { ProgrammingLanguagesList } from "../../components/Home/ProgrammingLanguages";
 import GitHubIcon from "@material-ui/icons/GitHub";
 
