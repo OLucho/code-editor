@@ -41,6 +41,7 @@ const useStyles = makeStyles((theme) => ({
   fileName: {
     padding: "0px 5px",
     color: theme.font,
+    fontSize: "smaller",
   },
   closeIcon: {
     position: "absolute",

@@ -52,6 +52,7 @@ export const FileViewer = () => {
 const useStyles = makeStyles((theme) => ({
   root: {
     padding: "0px 10px 10px",
+    height: "80%",
     width: "100%",
   },
   treeItem: {

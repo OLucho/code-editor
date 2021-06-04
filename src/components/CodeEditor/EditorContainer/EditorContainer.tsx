@@ -67,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
     flex: 1,
     height: "100%",
     overflow: "hidden",
-    paddingTop: "60px",
   },
   emptyMessage: {
     display: "flex",
